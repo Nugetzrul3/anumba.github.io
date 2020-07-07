@@ -3,3 +3,13 @@ body {
     padding: 0;
     background-color: white;
 }
+
+.noscriptmsg {
+    text-align: center;
+    padding: 100px;
+    margin: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    background-color: lightskyblue;
+    border-radius: 16px;
+}
