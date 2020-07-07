@@ -9,7 +9,6 @@ var title = "Hey";
 var font = "Ubuntu";
 var tabtext = ["GAMES", "SOFTWARE", "ABOUT"];
 var tablinks = ["https://anumba.itch.io/", "/about", "/software"];
-var sides;
 
 function init() {
     stage = new createjs.Stage("canvas");
@@ -73,29 +72,6 @@ function init() {
     titletext.textAlign = "center";
 
     stage.addChild(titletext);
-    
-    sides = newShape(255, 255, 255, function(){
-        var edgespacing = 300;
-        var edgerad = 250;
-
-        edgespacing = h*2/Math.floor(Math.sin(time)/edgespacing);
-
-        sides.graphics.beginFill(incolor);
-
-        for(var i = 0; i < h*2/edgespacing+1; i ++){
-            sides.graphics.drawPolyStar(w+100, i*edgespacing-h, edgerad, 6, 0, 180/6-90);
-            sides.graphics.drawPolyStar(-100-w, +i*edgespacing-h, edgerad, 6, 0, 180/6+90);
-        }
-    });
-    
-    sides.x = w;
-    sides.y = h;
-
-    stage.addChild(sides);
-    
-        sides.update();
-
-    sides.cache(-w, -h, w*2, h*2);
 
     center = newShape(135, 206, 250, function(){
         center.graphics.clear();
