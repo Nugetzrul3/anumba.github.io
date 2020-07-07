@@ -78,7 +78,7 @@ function init() {
         var edgespacing = 300;
         var edgerad = 250;
 
-        edgespacing = h*2/Math.floor(h*2/edgespacing);
+        edgespacing = h*2/Math.floor(Math.sin(times)/edgespacing);
 
         sides.graphics.beginFill(incolor);
 
