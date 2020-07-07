@@ -43,7 +43,7 @@ function init() {
             for(var y = -1; y < maxy; y ++){
                 background.graphics.beginFill(
                      createjs.Graphics.getHSL(
-                         (1.2+x/maxx/2 + y/maxy/2)*120 + Math.sin(time/20 + x/10 + y/20))*8,
+                         (1.2+x/maxx/2 + y/maxy/2)*120 + Math.sin(time/20 + x/10 + y/20)*8,
                          50+x/maxx*50, 
                          20+(y/maxy)*25)
                          );
