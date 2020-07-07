@@ -5,7 +5,7 @@ var foreground;
 var time = 0;
 var bcolor = "SteelBlue";
 var incolor = "LightSkyBlue";
-var title = "Welcome.";
+var title = "Hey";
 var font = "Ubuntu";
 var tabtext = ["GAMES", "SOFTWARE", "ABOUT"];
 var tablinks = ["https://anumba.itch.io/", "/about", "/software"];
