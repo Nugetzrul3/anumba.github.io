@@ -7,8 +7,8 @@ var bcolor = "SteelBlue";
 var incolor = "LightSkyBlue";
 var title = "Welcome.";
 var font = "Ubuntu";
-var tabtext = ["games", "about", "projects"];
-var tablinks = ["https://anuke.itch.io/", "/about", "/projects"];
+var tabtext = ["GAMES", "SOFTWARE", "ABOUT"];
+var tablinks = ["https://anumba.itch.io/", "/about", "/software"];
 var shadow;
 
 function init() {
@@ -58,6 +58,8 @@ function init() {
     
     background.cache(0, 0, w*2, h*2);
     background.update();
+    
+    var offset = 50;
     
     foreground = new createjs.Shape();
     stage.addChild(foreground);
