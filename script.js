@@ -9,7 +9,7 @@ var title = "Hey";
 var font = "Ubuntu";
 var tabtext = ["GAMES", "SOFTWARE", "ABOUT"];
 var tablinks = ["https://anumba.itch.io/", "/about", "/software"];
-var shadow;
+var sides;
 
 function init() {
     stage = new createjs.Stage("canvas");
@@ -74,7 +74,53 @@ function init() {
 
     stage.addChild(titletext);
     
+    sides = newShape(255, 255, 255, function(){
+        var edgespacing = 300;
+        var edgerad = 250;
+
+        edgespacing = h*2/Math.floor(h*2/edgespacing);
+
+        sides.graphics.beginFill(incolor);
+
+        for(var i = 0; i < h*2/edgespacing+1; i ++){
+            sides.graphics.drawPolyStar(w+100, i*edgespacing-h, edgerad, 6, 0, 180/6-90);
+            sides.graphics.drawPolyStar(-100-w, +i*edgespacing-h, edgerad, 6, 0, 180/6+90);
+        }
+    });
+    
+    sides.x = w;
+    sides.y = h;
+
+    stage.addChild(sides);
+    
+        sides.update();
+
+    sides.cache(-w, -h, w*2, h*2);
+
+    center = newShape(135, 206, 250, function(){
+        center.graphics.clear();
+
+        center.fill();
+
+        center.graphics.drawPolyStar(0, 0, 50, 3, 0, 180/6);
+    });
+
+    center.x = w;
+    center.y = h-offset;
+    center.rotation = 180;
+
+    center.update();
+
+    stage.addChild(center);
+    
     stage.update();
+}
+
+function tween(shape, doloop){
+    const t = createjs.Tween.get(shape, {loop: doloop == true});
+    if(shape.update != undefined)
+        t.addEventListener('change', shape.update);
+    return t;
 }
 
 function newShape(red, green, blue, updateFunction){
