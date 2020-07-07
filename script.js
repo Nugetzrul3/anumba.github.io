@@ -41,11 +41,9 @@ function init() {
 
         for(var x = 0; x < maxx; x ++){
             for(var y = -1; y < maxy; y ++){
-                    
-                
                 background.graphics.beginFill(
                      createjs.Graphics.getHSL(
-                         (1.2+x/maxx/2 + y/maxy/2)*120 + Math.sin(time/20 + x/10 + y/20)*12+Math.cos(time/10+3)*9 + Math.sin(x/2+time/20)*18+Math.cos(y+time/25)*8,
+                         (1.2+x/maxx/2 + y/maxy/2)*120 + Math.sin(time/20 + x/10 + y/20))*8,
                          50+x/maxx*50, 
                          20+(y/maxy)*25)
                          );
