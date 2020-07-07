@@ -31,6 +31,7 @@ function init() {
     background = new createjs.Shape();
     stage.addChild(background);
     
+
     background.update = function(){
         var tsize = 100;
         var xscl = 1.73/2.02;
@@ -45,12 +46,13 @@ function init() {
                      createjs.Graphics.getHSL(
                          (1.2+x/maxx/2 + y/maxy/2)*120 + Math.sin(time/20 + x/10 + y/20)*8,
                          50+x/maxx*50, 
-                         20+(y/maxy)*25)
+                         20+(y/maxy)*25
                          );
 
                 background.graphics.drawPolyStar(-50+x*(tsize*xscl) + ((y%2 == 0 && x%2==0) || (y%2 == 1 && x%2==1) ? 0 : -xscl*tsize), y*tsize*1.5 + (x % 2 == 0 ? tsize : 0), tsize, 3, 0, x%2 == 0 ? -180/6 : 180/6);
             }   
         }
+	}
 
         background.updateCache();
     }
