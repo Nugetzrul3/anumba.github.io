@@ -67,7 +67,7 @@ function init() {
     foreground.graphics.drawPolyStar(w, h-offset, 210, 3, 0, 180/6);
     foreground.cache(0, 0, w*2, h*2);
     
-    var titletext = new createjs.Text(title, "bold 34px " + font, "coral");
+    var titletext = new createjs.Text(title, "bold 34px " + font, "#FFF8DC");
     titletext.x = w;
     titletext.y = h*0.07;
     titletext.textAlign = "center";
