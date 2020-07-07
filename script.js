@@ -59,6 +59,19 @@ function init() {
     background.cache(0, 0, w*2, h*2);
     background.update();
     
+    foreground = new createjs.Shape();
+    stage.addChild(foreground);
+    foreground.graphics.beginFill(incolor);
+    foreground.graphics.drawPolyStar(w, h-offset, 210, 3, 0, 180/6);
+    foreground.cache(0, 0, w*2, h*2);
+    
+    var titletext = new createjs.Text(title, "bold 34px " + font, "coral");
+    titletext.x = w;
+    titletext.y = h*0.07;
+    titletext.textAlign = "center";
+
+    stage.addChild(titletext);
+    
     stage.update();
 }
 
