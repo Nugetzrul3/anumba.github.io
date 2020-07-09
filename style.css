@@ -4,6 +4,26 @@ body {
     background-color: white;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 16px;
+}
+
+h2 {
+    margin: 15px;
+    color: crimson;
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
+    border-bottom: 1px lightgray solid;
+    height: 40px;
+}
+
 .thumbnail:hover {
     position:relative;
     top:-25px;
