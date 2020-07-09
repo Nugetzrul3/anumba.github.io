@@ -89,6 +89,39 @@ function init() {
 
     stage.addChild(center);
     
+    var tabs = 3;
+    var spacing = 210;
+    var rad = 150;
+    var smooth = 190;
+    var containers = {};
+
+
+    [0, 1, 2].forEach(function(i) {
+
+        var ang = 2*Math.PI/tabs*i;
+
+        const container = new createjs.Container();
+        container.x = stage.canvas.width/2;
+        container.y = stage.canvas.height/2 - offset;
+        container.name = "tab" + i;
+        
+        const shape = newShape(135, 206, 250, function(){
+            shape.graphics.clear();
+            
+            shape.fill();
+
+            shape.graphics.drawPolyStar(0, 0, rad, 3, 0, -180/6);
+        });
+        
+        shape.x = Math.sin(2*Math.PI/i - tabs)*spacing;
+        shape.y = Math.cos(2*Math.PI/i - tabs)*spacing;
+
+        shape.update();
+
+        if(tabtext[i] != "")
+            shape.cursor = "pointer";
+    }
+    
     stage.update();
 }
 
