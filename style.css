@@ -4,6 +4,18 @@ body {
     background-color: white;
 }
 
+.thumbnail:hover {
+    position:relative;
+    top:-25px;
+    left:-35px;
+    width:400px;
+    margin: 0;
+    padding: 0;
+    height:auto;
+    display:block;
+    z-index:999;
+}
+
 .noscriptmsg {
     text-align: center;
     padding: 100px;
