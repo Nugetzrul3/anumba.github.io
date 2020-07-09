@@ -120,7 +120,17 @@ function init() {
 
         if(tabtext[i] != "")
             shape.cursor = "pointer";
-    }
+        
+        container.addChild(shape);
+        stage.addChild(container);
+
+        const text = new createjs.Text(tabtext[i], "bold 20px " + font, "#FFF8DC");
+        text.x = Math.sin(ang)*spacing;
+        text.y = Math.cos(ang)*spacing - 20;
+        text.textAlign = "center";
+
+        container.addChild(text);
+    });
     
     stage.update();
 }
