@@ -77,36 +77,12 @@ function init() {
     .to({scaleX: 1.09, scaleY: 1.09, rotation: 0}, 6000, createjs.Ease.getPowInOut(2))
     .to({scaleX: 1, scaleY: 1, rotation: 0}, 6000, createjs.Ease.getPowInOut(2));
 
-    var titletext = new createjs.Text(title, "bold 34px " + font, "coral");
+    var titletext = new createjs.Text(title, "bold 34px " + font, "#FFF8DC");
     titletext.x = w;
     titletext.y = h*0.07;
     titletext.textAlign = "center";
 
     stage.addChild(titletext);
-
-    var sides = 5;
-    var bspace = 280;
-    var brad = 110;
-
-    for(var i = 0; i < sides; i ++){
-
-        const index = i;
-
-        const shape = newShape(70, 130, 180, function(){
-            shape.graphics.clear();
-            
-            shape.fill();
-
-            shape.graphics.drawPolyStar(0, 0, brad, 3, 0, -180/6-(360/sides)*index);
-        });
-
-        shape.x = Math.sin(2*Math.PI/sides*i)*bspace;
-        shape.y = Math.cos(2*Math.PI/sides*i)*bspace;
-
-        bcontainer.addChild(shape);
-
-        shape.update();
-    }
 
     var pad = 30;
     var scl = 70;
@@ -120,43 +96,6 @@ function init() {
     foreground.graphics.drawPolyStar(w, h-offset, 210, 3, 0, 180/6);
 
     foreground.cache(0, 0, w*2, h*2);
-
-    sides = newShape(255, 255, 255, function(){
-        var edgespacing = 300;
-        var edgerad = 250;
-
-        edgespacing = h*2/Math.floor(h*2/edgespacing);
-
-        sides.graphics.beginFill(incolor);
-
-        for(var i = 0; i < h*2/edgespacing+1; i ++){
-            sides.graphics.drawPolyStar(w+100, i*edgespacing-h, edgerad, 6, 0, 180/6-90);
-            sides.graphics.drawPolyStar(-100-w, +i*edgespacing-h, edgerad, 6, 0, 180/6+90);
-        }
-    });
-    
-    sides.x = w;
-    sides.y = h;
-
-    stage.addChild(sides);
-
-    
-    sides.on("mouseover", function(evt){
-
-        tween(sides)
-        .to({ scaleX: 1.1, scaleY: 1.1 }, 500, createjs.Ease.getPowInOut(1.5));
-    });
-
-    sides.on("mouseout", function(evt){
-        createjs.Tween.removeTweens(sides);
-
-        tween(sides)
-        .to({ scaleX: 1, scaleY: 1 }, 500, createjs.Ease.getPowInOut(1.5));
-    });
-
-    sides.update();
-
-    sides.cache(-w, -h, w*2, h*2);
 
     center = newShape(135, 206, 250, function(){
         center.graphics.clear();
