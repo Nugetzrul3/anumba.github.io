@@ -4,7 +4,7 @@ var background;
 var foreground;
 var time = 0;
 var bcolor = "SteelBlue";
-var incolor = "LightSkyBlue";
+var incolor = "Coral";
 var title = "Hey";
 var font = "Ubuntu";
 var tabtext = ["games", "about", "software"];
@@ -97,7 +97,7 @@ function init() {
 
     foreground.cache(0, 0, w*2, h*2);
 
-    center = newShape(135, 206, 250, function(){
+    center = newShape(255, 127, 80, function(){
         center.graphics.clear();
 
         center.fill();
@@ -129,7 +129,7 @@ function init() {
         container.y = stage.canvas.height/2 - offset;
         container.name = "tab" + i;
 
-        const shape = newShape(135, 206, 250, function(){
+        const shape = newShape(255, 127, 80, function(){
             shape.graphics.clear();
             
             shape.fill();
@@ -168,16 +168,16 @@ function init() {
             .to({ scaleX: 1, scaleY: 1 }, smooth/1.5, createjs.Ease.getPowInOut(1.5));
 
             tween(shape)
-            .to({ r: 135, g: 206, b: 250 }, smooth, createjs.Ease.getPowInOut(1.5));
+            .to({ r: 255, g: 127, b: 80 }, smooth, createjs.Ease.getPowInOut(1.5));
 
             tween(center)
-            .to({ r: 135, g: 206, b: 250,  scaleX: 1, scaleY : 1, rotation: 180}, smooth*1.5, createjs.Ease.getPowInOut(1.5));
+            .to({ r: 255, g: 127, b: 80,  scaleX: 1, scaleY : 1, rotation: 180}, smooth*1.5, createjs.Ease.getPowInOut(1.5));
         });
 
         if(tabtext[i] != "")
         shape.on("click", function(event){
             //don't want .html extensions when testing locally
-            window.location.href = tablinks[i].startsWith("http") ? tablinks[i] :  (tabtext[i] + (window.location.href.indexOf("file:///") > -1 ? ".html" : ""));
+            window.location.href = tablinks[i].startsWith("http") ? tablinks[i] :  (tabtext[i].toLocaleLowerCase() + (window.location.href.indexOf("file:///") > -1 ? ".html" : ""));
         });
 
         container.addChild(shape);
